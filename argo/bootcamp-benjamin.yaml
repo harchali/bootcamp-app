@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootcamp-prod
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: europe-west1-docker.pkg.dev/k8s-formation/bootcamp/benjamin/adservice:^0.1
+    argocd-image-updater.argoproj.io/write-back-method: git
+spec:
+  destination:
+    namespace: benjamin-app
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: kubernetes-manifests
+    repoURL: 'git@github.com:kiowy-org/bootcamp-app.git'
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
