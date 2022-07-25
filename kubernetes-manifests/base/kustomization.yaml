@@ -1,0 +1,5 @@
+resources:
+  - adservice.yaml
+commonLabels:
+  app: bootcamp
+  env: test

@@ -1,0 +1,10 @@
+resources:
+  - ../../base
+namespace: bootcamp-prod
+commonLabels:
+  env: production
+patchesStrategicMerge:
+  - patch-adservice.yaml
+images:
+  - name: europe-west1-docker.pkg.dev/k8s-formation/bootcamp/benjamin/adservice
+    newTag: "2.0"
