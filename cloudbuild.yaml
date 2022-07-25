@@ -1,5 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/k8s-formation/bootcamp/benjamin/adservice:0.1', 'src/adservice' ]
+  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/$PROJECT_ID/bootcamp/benjamin/adservice:$SHORT_SHA', 'src/adservice' ]
 images:
-- 'europe-west1-docker.pkg.dev/k8s-formation/bootcamp/benjamin/adservice:0.1'
+- 'europe-west1-docker.pkg.dev/$PROJECT_ID/bootcamp/benjamin/adservice:$SHORT_SHA'
