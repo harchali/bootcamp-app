@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bootcamp-repository
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: git@github.com:harchali/bootcamp-app.git
+  sshPrivateKey: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDDCeE3v0uvaFdzmiUfIFKe0Swk+pGM8FG7SKAj1MMdGK5GcJpd8G2I2L9qDn5pKteoxjw5+dhvlPH3GwPhsUOYveNS0SUWTabWQeAlej2GGsJCPKd0/vNDYWwF6UTPmaXlPOmyscLlVLHLyKldXPda7BQgHufU/fipEdKKpIa7JDRAzgMeHiGC07WGuNPZNb1RGgdHNQkQsh5zmPoje0aMuq4Z/WwEDhiD2cTfb8+6e+GfXhX6G3SK6L3+qbQP5l5u20zOr08ruHudQdPAdKUhoZCJVkLmzGVRki7etwHOCuvEmTsQIHv3YWinLaki7TVwSSDWg5hZ1k7NlOienJkO56o5RykvVX9xNrGaHW6GDgRyr5Yr6TVIXp0WuowqWf/AoyInxTgOgfpnI9FjFwpnYFlV7BkcHHfu3Cjp8EVozyv/QfyYAmYACmvg/8Eg2BBa4Q0ERQjr+FHeMAs7rE69waCxmG9xuSaATiOvuOuV0qpi4jneqEAd+4Mz9A03hzc= harch.ali.ha@gmail.com
+    -----END OPENSSH PRIVATE KEY-----
