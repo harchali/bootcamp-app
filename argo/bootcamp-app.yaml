@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: bootcamp
-  namespace: argocd
 spec:
   project: default
   source:
@@ -12,3 +11,9 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: bootcamp
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
