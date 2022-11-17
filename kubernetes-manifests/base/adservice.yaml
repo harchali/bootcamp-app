@@ -18,7 +18,7 @@ spec:
         fsGroup: 1000
       containers:
         - name: adservice
-          image: europe-west1-docker.pkg.dev/k8s-formation/bootcamp/benjamin/adservice
+          image: europe-west1-docker.pkg.dev/bootcamp-app-364615/bootcamp/adservice
           ports:
             - containerPort: 9555
               protocol: TCP
