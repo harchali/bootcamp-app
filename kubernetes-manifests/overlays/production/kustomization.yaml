@@ -6,5 +6,5 @@ commonLabels:
 patchesStrategicMerge:
   - patch-adservice.yaml
 images:
-  - name: europe-west1-docker.pkg.dev/k8s-formation/bootcamp/benjamin/adservice
+  - name: europe-west1-docker.pkg.dev/bootcamp-app-364615/bootcamp/adservice
     newTag: "2.0"
