@@ -73,6 +73,13 @@ helm install -n argocd argocd argo/argo-cd
 
 Une fois la commande exécutée, helm vous indique la commande pour récupérer le mot de passe admin, ainsi que la commande pour accéder à l'UI.
 Essayez de vous connecter à l'interface à l'aide de ces deux informations.
+```
+kubectl port-forward service/argocd-server -n argocd 8080:443
+```
+Pour voir le mot de passe par défaut de :
+```
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
 
 Nous allons ensuite donner accès à ArgoCD à votre dépôt de code source. 
 Ajoutez un dossier `argo/` dans votre dépot, il contiendra les fichiers Kubernetes propres à ArgoCD.

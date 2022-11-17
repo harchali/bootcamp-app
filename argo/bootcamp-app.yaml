@@ -1,19 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-metadata:
-  name: bootcamp
 spec:
-  project: default
-  source:
-    repoURL: git@github.com:harchali/bootcamp-app.git
-    targetRevision: HEAD
-    path: kubernetes-manifests
   destination:
-    server: https://kubernetes.default.svc
     namespace: bootcamp
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: kubernetes-manifests
+    repoURL: 'git@github.com:harchali/bootcamp-app.git'
+    targetRevision: HEAD
+  project: default
   syncPolicy:
     automated:
       prune: false
       selfHeal: false
     syncOptions:
       - CreateNamespace=true
+metadata:
+  name: bootcamp
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: adservice=europe-west1-docker.pkg.dev/bootcamp-app-364615/bootcamp/adservice:^0.1
+    argocd-image-updater.argoproj.io/adservice.update-strategy: latest
+    argocd-image-updater.argoproj.io/adservice.allow-tags: regexp:^[0-9a-f]{7}$
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/bootcamp-repository
+    argocd-image-updater.argoproj.io/git-branch: main
+    
