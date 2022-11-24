@@ -19,7 +19,7 @@ metadata:
   name: bootcamp
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: adservice=europe-west1-docker.pkg.dev/bootcamp-app-364615/bootcamp/adservice:^0.1
+    argocd-image-updater.argoproj.io/image-list: adservice=europe-west1-docker.pkg.dev/bootcamp-app-364615/bootcamp/adservice
     argocd-image-updater.argoproj.io/adservice.update-strategy: latest
     argocd-image-updater.argoproj.io/adservice.allow-tags: regexp:^[0-9a-f]{7}$
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/bootcamp-repository
