@@ -2,7 +2,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 spec:
   destination:
-    namespace: bootcamp
+    sourceNamespaces:
+    - bootcamp
+    - bootcamp-prod
     server: 'https://kubernetes.default.svc'
   source:
     path: kubernetes-manifests
@@ -16,7 +18,7 @@ spec:
     syncOptions:
       - CreateNamespace=true
 metadata:
-  name: bootcamp
+  name: bootcamp-prod
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: adservice=europe-west1-docker.pkg.dev/bootcamp-app-364615/bootcamp/adservice 

@@ -1,6 +1,6 @@
 resources:
   - ../../base
-namespace: bootcamp
+namespace: bootcamp-prod
 commonLabels:
   env: production
 patchesStrategicMerge:
